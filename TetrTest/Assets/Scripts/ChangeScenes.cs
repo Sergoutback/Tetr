@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChangeScenes : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public void ChangeFromStartToMain()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
+        SceneManager.LoadScene(1);
+    }    
+    public void ChangeFromSceneToHome()
     {
-        
-    }
+        SceneManager.LoadScene(0);
+    }  
+    public void ChangeFromStartToSettings()
+    {
+        SceneManager.LoadScene(2);
+    } 
 }
