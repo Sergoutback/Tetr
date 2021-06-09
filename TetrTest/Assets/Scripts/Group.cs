@@ -1,11 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Data;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Globalization;
+using System;
 
 public class Group : MonoBehaviour
 {
     // Time since last gravity tick
     public float lastFall = 0;
+    public Text TextDisp;
+    public string text;
+    public float speedInSeconds;
+    
+    public ChangeSpeed seconds;
+    
+    public void ChangeSpeed()
+    {
+        seconds = GetComponent<ChangeSpeed>();
+        seconds.ChangeSpeedSeconds();
+        TextDisp.text = seconds.TextDispValue.text;
+        float speedInSeconds = Convert.ToSingle(seconds);
+    }
+    
+    
     bool isValidGridPos() 
     {        
         foreach (Transform child in transform) {
@@ -28,6 +48,7 @@ public class Group : MonoBehaviour
         if (!isValidGridPos()) {
             Debug.Log("GAME OVER");
             Destroy(gameObject);
+            SceneManager.LoadScene(3);
         }
     }
     void Update() 
@@ -75,27 +96,30 @@ public class Group : MonoBehaviour
 
         // Move Downwards and Fall
         else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-                Time.time - lastFall >= 1) {
-            // Modify position
-            transform.position += new Vector3(0, -1, 0);
+                Time.time - lastFall >= speedInSeconds)
+                {
+                // Modify position
+                transform.position += new Vector3(0, -1, 0);
 
-            // See if valid
-            if (isValidGridPos()) {
-                // It's valid. Update grid.
-                updateGrid();
-            } else {
-                // It's not valid. revert.
-                transform.position += new Vector3(0, 1, 0);
+                // See if valid
+                if (isValidGridPos()) {
+                    // It's valid. Update grid.
+                    updateGrid();
+                } 
+                else 
+                {
+                    // It's not valid. revert.
+                    transform.position += new Vector3(0, 1, 0);
 
-                // Clear filled horizontal lines
-                Playfield.deleteFullRows();
+                    // Clear filled horizontal lines
+                    Playfield.deleteFullRows();
 
-                // Spawn next Group
-                FindObjectOfType<Spawner>().spawnNext();
+                    // Spawn next Group
+                    FindObjectOfType<Spawner>().spawnNext();
 
-                // Disable script
-                enabled = false;
-            }
+                    // Disable script
+                    enabled = false;
+                }
 
             lastFall = Time.time;
         }
