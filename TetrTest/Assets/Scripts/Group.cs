@@ -11,9 +11,10 @@ public class Group : MonoBehaviour
 {
     // Time since last gravity tick
     public float lastFall = 0;
+    public float speedInSeconds;
     public Text TextDisp;
     public string text;
-    public float speedInSeconds;
+    
     
     public ChangeSpeed seconds;
     
@@ -21,7 +22,7 @@ public class Group : MonoBehaviour
     {
         seconds = GetComponent<ChangeSpeed>();
         seconds.ChangeSpeedSeconds();
-        TextDisp.text = seconds.TextDispValue.text;
+        TextDisp.text = seconds.TextDispValue.text;        
         float speedInSeconds = Convert.ToSingle(seconds);
     }
     
@@ -43,8 +44,8 @@ public class Group : MonoBehaviour
         return true;
     }
     void Start() 
-    {
-        // Default position not valid? Then it's game over
+    {        
+         // Default position not valid? Then it's game over
         if (!isValidGridPos()) {
             Debug.Log("GAME OVER");
             Destroy(gameObject);
@@ -52,7 +53,7 @@ public class Group : MonoBehaviour
         }
     }
     void Update() 
-    {
+    {        
         // Move Left
         if (Input.GetKeyDown(KeyCode.LeftArrow)) {
             // Modify position

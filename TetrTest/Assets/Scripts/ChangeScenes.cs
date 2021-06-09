@@ -17,4 +17,8 @@ public class ChangeScenes : MonoBehaviour
     {
         SceneManager.LoadScene(2);
     } 
+    public void ChangeFromStartToShop()
+    {
+        SceneManager.LoadScene(4);
+    } 
 }
