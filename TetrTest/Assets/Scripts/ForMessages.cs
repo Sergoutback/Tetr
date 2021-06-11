@@ -13,7 +13,7 @@ public class ForMessages : MonoBehaviour
     IEnumerator ForMess() 
         {                    
         yield return new WaitForSeconds(3);
-        messageText.text = "\nPush me!";
+        messageText.text = "Push me\nfor\ndownloading\npage!";
         }
 
     public void Message_Cliked()
