@@ -9,15 +9,25 @@ public class ForMessages : MonoBehaviour
     void Start()
     {
         StartCoroutine (ForMess ());
+        Debug.Log("StartCoroutine ForMess");
     }
     IEnumerator ForMess() 
         {                    
-        yield return new WaitForSeconds(3);
-        messageText.text = "Push me\nfor\ndownloading\npage!";
+        yield return new WaitForSeconds(1);
+        messageText.text = "\nPush for\ndownload\npage!";
         }
 
     public void Message_Cliked()
     {   
-        messageText.text = "\nHello!\nLet's play!";              
+        {
+            StartCoroutine (ForMess2());
+            Debug.Log("StartCoroutine ForMess2");
+        }
+        IEnumerator ForMess2() 
+        {
+            messageText.text = "\n\nYes,";
+            yield return new WaitForSeconds(1); 
+            messageText.text = "\n\nbaby!";    
+        }    
     }
 }

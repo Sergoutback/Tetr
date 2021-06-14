@@ -212,6 +212,7 @@ GameObject:
   - component: {fileID: 469635741}
   - component: {fileID: 469635740}
   - component: {fileID: 469635739}
+  - component: {fileID: 469635743}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -285,6 +286,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &469635743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469635738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec12b4bab3307344a7accd6d5cff123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  TextDispValue: {fileID: 1913622391}
+  groupGO: {fileID: 469635738}
+  speedForGroup: {fileID: 0}
 --- !u!1 &719998966
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,7 +316,7 @@ GameObject:
   - component: {fileID: 719998968}
   - component: {fileID: 719998971}
   m_Layer: 0
-  m_Name: ChangeSpeedButton
+  m_Name: "\u0421hangeSpeedButton"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -369,7 +386,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 719998971}
-        m_MethodName: ChangeSpeedSeconds
+        m_MethodName: ChangeSpeedInSet
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -428,8 +445,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec12b4bab3307344a7accd6d5cff123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 3
+  speed: 0
   TextDispValue: {fileID: 1913622391}
+  groupGO: {fileID: 469635738}
+  speedForGroup: {fileID: 0}
 --- !u!1 &877360954
 GameObject:
   m_ObjectHideFlags: 0
@@ -726,8 +745,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec12b4bab3307344a7accd6d5cff123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 3
+  speed: 0
   TextDispValue: {fileID: 1913622391}
+  groupGO: {fileID: 0}
+  speedForGroup: {fileID: 0}
 --- !u!114 &1275586961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -928,6 +949,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1495546664}
         m_MethodName: ChangeFromStartToMain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1221,5 +1253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ec12b4bab3307344a7accd6d5cff123, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  seconds: 3
+  speed: 0
   TextDispValue: {fileID: 1913622391}
+  groupGO: {fileID: 0}
+  speedForGroup: {fileID: 0}

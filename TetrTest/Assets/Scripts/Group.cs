@@ -11,22 +11,11 @@ public class Group : MonoBehaviour
 {
     // Time since last gravity tick
     public float lastFall = 0;
-    public float speedInSeconds;
-    public Text TextDisp;
-    public string text;
-    
-    
-    public ChangeSpeed seconds;
-    
-    public void ChangeSpeed()
-    {
-        seconds = GetComponent<ChangeSpeed>();
-        seconds.ChangeSpeedSeconds();
-        TextDisp.text = seconds.TextDispValue.text;        
-        float speedInSeconds = Convert.ToSingle(seconds);
-    }
-    
-    
+    public float speedInSeconds; //к ней нужен доступ из скрипта ChangeSpeed 
+  
+    // public GameObject go;
+    // public ChangeSpeed changeSpeedInSet;
+
     bool isValidGridPos() 
     {        
         foreach (Transform child in transform) {
@@ -43,13 +32,35 @@ public class Group : MonoBehaviour
         }
         return true;
     }
+    // public void GetSpeedFromChangeSpeed()
+    // {
+    //     // Найти объект по имени
+    //     // GameObject go = GameObject.Find(ChangeSpeed);
+    //     // взять его компонент где лежит скорость
+    //     changeSpeedInSet = GetComponent<ChangeSpeed>();
+    //     // взять переменную скорости
+    //     changeSpeedInSet.ChangeSpeedInSet();   
+    //     // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
+    //     SpeedInSeconds();
+    //     // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
+    // } 
+    // public void SpeedInSeconds()
+    // {
+    //     float speedInSeconds = Convert.ToSingle(changeSpeedInSet);
+    // }
+
     void Start() 
-    {        
+    {       
+        // GetSpeedFromChangeSpeed();   
+        // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet);  
+        // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds);    
          // Default position not valid? Then it's game over
         if (!isValidGridPos()) {
             Debug.Log("GAME OVER");
+            // Debug.Log("timeForSpeedInGroup = "+ timeForSpeed);
+            // Debug.Log("speedInSecondsInGroup="+speedInSeconds);
             Destroy(gameObject);
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(3);                                          
         }
     }
     void Update() 
@@ -97,8 +108,8 @@ public class Group : MonoBehaviour
 
         // Move Downwards and Fall
         else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-                Time.time - lastFall >= speedInSeconds)
-                {
+                    Time.time - lastFall >= speedInSeconds)               
+                {                    
                 // Modify position
                 transform.position += new Vector3(0, -1, 0);
 
@@ -139,6 +150,5 @@ public class Group : MonoBehaviour
             Vector2 v = Playfield.roundVec2(child.position);
             Playfield.grid[(int)v.x, (int)v.y] = child;
         }        
-    }
-    
+    }        
 }
