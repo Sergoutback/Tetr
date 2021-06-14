@@ -11,10 +11,10 @@ public class Group : MonoBehaviour
 {
     // Time since last gravity tick
     public float lastFall = 0;
-    public float speedInSeconds; //к ней нужен доступ из скрипта ChangeSpeed 
+    public float speedOfTetr; //к ней нужен доступ из скрипта ChangeSpeed 
   
-    // public GameObject go;
-    // public ChangeSpeed changeSpeedInSet;
+    public GameObject goSceneSwap;
+    public SceneSwap changeSpeedInSwap;
 
     bool isValidGridPos() 
     {        
@@ -32,29 +32,33 @@ public class Group : MonoBehaviour
         }
         return true;
     }
-    // public void GetSpeedFromChangeSpeed()
-    // {
-    //     // Найти объект по имени
-    //     // GameObject go = GameObject.Find(ChangeSpeed);
-    //     // взять его компонент где лежит скорость
-    //     changeSpeedInSet = GetComponent<ChangeSpeed>();
-    //     // взять переменную скорости
-    //     changeSpeedInSet.ChangeSpeedInSet();   
-    //     // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
-    //     SpeedInSeconds();
-    //     // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
-    // } 
-    // public void SpeedInSeconds()
-    // {
-    //     float speedInSeconds = Convert.ToSingle(changeSpeedInSet);
-    // }
+    
+
+    public void SpeedOfTetr()
+    {
+        float speedOfTetr = SceneSwap(speedInSeconds);
+    }
+
+    public void GetSpeedFromSwap()
+    {
+        // Найти объект по имени
+        // GameObject go = GameObject.Find(ChangeSpeed);
+        // взять его компонент где лежит скорость
+        changeSpeedInSwap = goSceneSwap.GetComponent<SceneSwap>();
+        // взять переменную скорости
+        changeSpeedInSwap.SpeedInSeconds();   
+        // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
+        SpeedOfTetr();
+        // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
+    } 
+    
 
     void Start() 
     {       
-        // GetSpeedFromChangeSpeed();   
-        // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet);  
-        // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds);    
-         // Default position not valid? Then it's game over
+        GetSpeedFromSwap();   
+        Debug.Log("SpeedOfTetr="+ speedOfTetr);  
+        
+        // Default position not valid? Then it's game over
         if (!isValidGridPos()) {
             Debug.Log("GAME OVER");
             // Debug.Log("timeForSpeedInGroup = "+ timeForSpeed);
@@ -108,7 +112,7 @@ public class Group : MonoBehaviour
 
         // Move Downwards and Fall
         else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-                    Time.time - lastFall >= speedInSeconds)               
+                    Time.time - lastFall >= speedOfTetr)               
                 {                    
                 // Modify position
                 transform.position += new Vector3(0, -1, 0);

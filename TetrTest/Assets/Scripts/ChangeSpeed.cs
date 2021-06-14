@@ -12,8 +12,8 @@ public class ChangeSpeed : MonoBehaviour
     public  int speed;
     public Text TextDispValue;  
 
-    public GameObject groupGO;
-    public  Group speedForGroup;
+    // public GameObject groupGO;
+    // public  Group speedForGroup;
 
     
     public void ChangeSpeedInSet()
@@ -21,13 +21,13 @@ public class ChangeSpeed : MonoBehaviour
         TextDispValue.text =speed.ToString();
         Debug.Log("speedOfChangeSpeedSeconds="+ speed);        
 
-        if (speed >= 1)        
-            speed-= 1;        
+        if (speed <= 3)        
+            speed+= 1;        
         else
-            speed = 5;  
+            speed = 1;  
 
-        speedForGroup = groupGO.GetComponent<Group>();
-        speedForGroup.speedInSeconds = Convert.ToSingle(speed);
+        // speedForGroup = groupGO.GetComponent<Group>();
+        // speedForGroup.speedInSeconds = Convert.ToSingle(speed);
 
     }           
 }
