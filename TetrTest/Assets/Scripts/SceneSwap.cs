@@ -22,7 +22,7 @@ public class SceneSwap : MonoBehaviour
 {
     public GameObject go;
     public ChangeSpeed changeSpeedInSet;
-    public float speedInSeconds;
+    public float speedInSwap ;
 
     
     private void OnGUI()
@@ -42,7 +42,7 @@ public class SceneSwap : MonoBehaviour
         if (scene.name == "1MainScene")
         {
             // Show a button to allow scene2 to be switched to.
-            if (GUI.Button(new Rect(xCenter - width / 4, yCenter - height * 4, width, height), "Load \nsecond \nscene", fontSize))
+            if (GUI.Button(new Rect(xCenter - width / 4, yCenter - height * 4, width, height), "Load \nset \nscene", fontSize))
             {
                 SceneManager.LoadScene("2SettingsScene");
             }
@@ -50,7 +50,7 @@ public class SceneSwap : MonoBehaviour
         else
         {
             // Show a button to allow scene1 to be returned to.
-            if (GUI.Button(new Rect(xCenter - width / 4, yCenter - height * 4, width, height), "Return \nto first \nscene", fontSize))
+            if (GUI.Button(new Rect(xCenter - width / 4, yCenter - height * 4, width, height), "Return \nto main \nscene", fontSize))
             {
                 SceneManager.LoadScene("1MainScene");
                 GetSpeedFromChangeSpeed();   
@@ -59,10 +59,10 @@ public class SceneSwap : MonoBehaviour
         }
     }
 
-    public void SpeedInSeconds()
+    public void SpeedInSwap()
     {    
-        float speedInSeconds = Convert.ToSingle(changeSpeedInSet);
-        Debug.Log("speedInSecondsOfSceneSwap="+ speedInSeconds); 
+        float speedInSwap = Convert.ToSingle(changeSpeedInSet);
+        Debug.Log("speedInSwapOfSceneSwap="+ speedInSwap); 
     }
     
 
@@ -75,7 +75,7 @@ public class SceneSwap : MonoBehaviour
         // взять переменную скорости
         changeSpeedInSet.ChangeSpeedInSet();   
         // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
-        SpeedInSeconds();
+        SpeedInSwap ();
         // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
     }
 }

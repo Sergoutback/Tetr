@@ -41,7 +41,7 @@ public class Group : MonoBehaviour
         // взять его компонент где лежит скорость
         changeSpeedInSwap = goSceneSwap.GetComponent<SceneSwap>();
         // взять переменную скорости
-        changeSpeedInSwap.SpeedInSeconds();   
+        changeSpeedInSwap.SpeedInSwap();   
         // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
         SpeedOfTetr();
         // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
@@ -111,7 +111,7 @@ public class Group : MonoBehaviour
 
         // Move Downwards and Fall
         else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-                    Time.time - lastFall >= speedOfTetr)               
+                    Time.time - lastFall >= 1)               
                 {                    
                 // Modify position
                 transform.position += new Vector3(0, -1, 0);

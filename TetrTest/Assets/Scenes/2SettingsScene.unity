@@ -712,8 +712,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232, y: 464.5}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 262, y: 465.2}
+  m_SizeDelta: {x: 551.30225, y: 981.5156}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960346966
 MonoBehaviour:
@@ -1245,6 +1245,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912344934}
   - component: {fileID: 1912344935}
+  - component: {fileID: 1912344936}
   m_Layer: 0
   m_Name: Menu
   m_TagString: Untagged
@@ -1268,8 +1269,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 232.01, y: 464.47}
-  m_SizeDelta: {x: 490.174, y: 980.0928}
+  m_AnchoredPosition: {x: 260.7, y: 464.47}
+  m_SizeDelta: {x: 550.62897, y: 980.0928}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912344935
 MonoBehaviour:
@@ -1286,6 +1287,18 @@ MonoBehaviour:
   go: {fileID: 719998966}
   changeSpeedInSet: {fileID: 719998971}
   speedInSeconds: 0
+--- !u!114 &1912344936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1912344933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12626c723b74ef47ab514907fe1de35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1913622389
 GameObject:
   m_ObjectHideFlags: 0
