@@ -27,20 +27,22 @@ public class SceneSwap : MonoBehaviour
     
     private void OnGUI()
     {
-        int xCenter = (Screen.width / 2);
-        int yCenter = (Screen.height / 2);
-        int width = 120;
-        int height = 120;
+        int xCenter = (Screen.width - Screen.width / 4);
+        int yCenter = (Screen.height-Screen.height/2);
+        int width = 110;
+        int height = 110;
 
         GUIStyle fontSize = new GUIStyle(GUI.skin.GetStyle("button"));
-        fontSize.fontSize = 16;
+        fontSize.fontSize = 16;        
+
+
 
         Scene scene = SceneManager.GetActiveScene();
 
         if (scene.name == "1MainScene")
         {
             // Show a button to allow scene2 to be switched to.
-            if (GUI.Button(new Rect(xCenter - width / 2, yCenter - height / 2, width, height), "Load \nsecond \nscene", fontSize))
+            if (GUI.Button(new Rect(xCenter - width / 4, yCenter - height * 4, width, height), "Load \nsecond \nscene", fontSize))
             {
                 SceneManager.LoadScene("2SettingsScene");
             }
@@ -48,7 +50,7 @@ public class SceneSwap : MonoBehaviour
         else
         {
             // Show a button to allow scene1 to be returned to.
-            if (GUI.Button(new Rect(xCenter - width / 2, yCenter - height / 2, width, height), "Return \nto first \nscene", fontSize))
+            if (GUI.Button(new Rect(xCenter - width / 4, yCenter - height * 4, width, height), "Return \nto first \nscene", fontSize))
             {
                 SceneManager.LoadScene("1MainScene");
                 GetSpeedFromChangeSpeed();   
@@ -58,10 +60,11 @@ public class SceneSwap : MonoBehaviour
     }
 
     public void SpeedInSeconds()
-    {
-        public float speedInSeconds = Convert.ToSingle(changeSpeedInSet);
+    {    
+        float speedInSeconds = Convert.ToSingle(changeSpeedInSet);
         Debug.Log("speedInSecondsOfSceneSwap="+ speedInSeconds); 
     }
+    
 
     public void GetSpeedFromChangeSpeed()
     {

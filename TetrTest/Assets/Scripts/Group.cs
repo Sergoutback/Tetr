@@ -14,7 +14,7 @@ public class Group : MonoBehaviour
     public float speedOfTetr; //к ней нужен доступ из скрипта ChangeSpeed 
   
     public GameObject goSceneSwap;
-    public SceneSwap changeSpeedInSwap;
+    public SceneSwap changeSpeedInSwap;    
 
     bool isValidGridPos() 
     {        
@@ -34,11 +34,6 @@ public class Group : MonoBehaviour
     }
     
 
-    public void SpeedOfTetr()
-    {
-        float speedOfTetr = SceneSwap(speedInSeconds);
-    }
-
     public void GetSpeedFromSwap()
     {
         // Найти объект по имени
@@ -51,6 +46,10 @@ public class Group : MonoBehaviour
         SpeedOfTetr();
         // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
     } 
+    public void SpeedOfTetr()
+    {
+        float speedOfTetr = Convert.ToSingle(changeSpeedInSwap);
+    }
     
 
     void Start() 

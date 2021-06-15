@@ -443,7 +443,6 @@ GameObject:
   - component: {fileID: 616812003}
   - component: {fileID: 616812002}
   - component: {fileID: 616812001}
-  - component: {fileID: 616812004}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
@@ -534,21 +533,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &616812004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 616811999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e302fde7d9843514aaeedc3f81c4807f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  loadLevel: 5DownloadScene
-  imageForLoad: {fileID: 0}
-  loadingScreen: {fileID: 2089635949}
 --- !u!1 &675044122
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,8 +940,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.3375902, y: 0.23500001}
   m_AnchorMax: {x: 0.6617268, y: 0.351}
-  m_AnchoredPosition: {x: 0.0000076293945, y: -0.000030517578}
-  m_SizeDelta: {x: -150.77295, y: -108.031654}
+  m_AnchoredPosition: {x: -0.000030517578, y: -0.47817993}
+  m_SizeDelta: {x: -160.07196, y: -101.80364}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1338334127
 MonoBehaviour:
@@ -983,7 +967,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -1181,8 +1165,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 616812004}
-        m_MethodName: Load
+      - m_Target: {fileID: 2089635954}
+        m_MethodName: SetActiveTrue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1319,7 +1303,7 @@ GameObject:
   - component: {fileID: 1707637800}
   - component: {fileID: 1707637799}
   m_Layer: 0
-  m_Name: BackgroundImage
+  m_Name: backgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1357,18 +1341,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.034784317, g: 1, b: 0, a: 0.39607844}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.39607844}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: 0608b638f1e42914bbde5b170b25cb36, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillMethod: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1614,7 +1598,7 @@ Canvas:
   m_GameObject: {fileID: 2089635949}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 1171238838}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -1640,4 +1624,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   loadLevel: 5DownloadScene
   imageForLoad: {fileID: 1338334127}
+  backgroundImage: {fileID: 1707637799}
   loadingScreen: {fileID: 2089635949}

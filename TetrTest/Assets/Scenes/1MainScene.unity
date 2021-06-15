@@ -152,8 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2fe24b04d5a4eb44833256de3bbe316, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
+  go: {fileID: 171618684}
   changeSpeedInSet: {fileID: 171618687}
+  speedInSeconds: 0
 --- !u!4 &171618686
 Transform:
   m_ObjectHideFlags: 0
@@ -195,7 +196,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lastFall: 0
-  speedInSeconds: 0
+  speedOfTetr: 0
+  goSceneSwap: {fileID: 171618684}
+  changeSpeedInSwap: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0

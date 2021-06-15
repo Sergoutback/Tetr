@@ -9,25 +9,27 @@ public class LoadingScreen : MonoBehaviour
 {
     public string loadLevel;    
     public Image imageForLoad;
+    public Image backgroundImage;
     public GameObject loadingScreen;  
 
     public void SetActiveTrue ()
-    {
+    {        
         loadingScreen.SetActive(true);   
-        Debug.Log("loadingScreen.SetActive(true)");   
+        Debug.Log("loadingScreen.SetActive(true)");              
+        StartAsync();
     }
     
      
-    public void WaitForLoad ()
-    {     
-        StartCoroutine (WaitLoad());           
+    // public void WaitForLoad ()
+    // {     
+    //     StartCoroutine (WaitLoad());           
     
-        IEnumerator WaitLoad() 
-        {            
-            yield return new WaitForSeconds(3);  
-            Debug.Log("yield return new WaitForSeconds(5)");
-        }
-    }    
+    //     IEnumerator WaitLoad() 
+    //     {            
+    //         yield return new WaitForSeconds(3);  
+    //         Debug.Log("yield return new WaitForSeconds(5)");
+    //     }
+    // }    
     
     public void StartAsync ()
     {
@@ -35,12 +37,15 @@ public class LoadingScreen : MonoBehaviour
 
         IEnumerator AsyncLoad()
         {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(loadLevel);        
+        AsyncOperation operation = SceneManager.LoadSceneAsync(loadLevel);             
             
             while (!operation.isDone)
-            {                
-                // imageForLoad.fillAmount = operation.progress;
-                Debug.Log("StartCoroutine LoadAsync");
+            {      
+                // yield return new WaitForSeconds(3);
+                // Debug.Log("WaitForSeconds(3)");          
+                imageForLoad.fillAmount = operation.progress;                
+                backgroundImage.fillAmount = operation.progress;
+                Debug.Log("StartCoroutine LoadAsync");                
                 yield return null;
                 Debug.Log("yield return null");
             }        
@@ -53,11 +58,11 @@ public class LoadingScreen : MonoBehaviour
         IEnumerator Waiter()
         { 
             yield return new WaitForSeconds(3);
-            Debug.Log("WaitForSeconds(3)");
-            SetActiveTrue ();
-            yield return new WaitForSeconds(3);  
-            Debug.Log("WaitForSeconds(3)");       
-            StartAsync ();  
+            Debug.Log("LoadWaitForSeconds(3)");
+            // SetActiveTrue ();
+            // yield return new WaitForSeconds(3);  
+            // Debug.Log("WaitForSeconds(3)");       
+            // StartAsync ();  
         }          
-    }   
+    }       
 }

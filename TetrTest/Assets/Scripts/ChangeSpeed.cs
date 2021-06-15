@@ -19,7 +19,7 @@ public class ChangeSpeed : MonoBehaviour
     public void ChangeSpeedInSet()
     {
         TextDispValue.text =speed.ToString();
-        Debug.Log("speedOfChangeSpeedSeconds="+ speed);        
+        Debug.Log("speedInChangeSpeed="+ speed);        
 
         if (speed <= 3)        
             speed+= 1;        
