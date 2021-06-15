@@ -689,6 +689,7 @@ GameObject:
   - component: {fileID: 960346967}
   - component: {fileID: 960346966}
   - component: {fileID: 960346968}
+  - component: {fileID: 960346969}
   m_Layer: 0
   m_Name: BackgroundSpeed
   m_TagString: Speed
@@ -769,6 +770,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &960346969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960346964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2fe24b04d5a4eb44833256de3bbe316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 719998966}
+  changeSpeedInSet: {fileID: 719998971}
+  speedInSwap: 0
 --- !u!1 &1275586958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1286,7 +1302,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   go: {fileID: 719998966}
   changeSpeedInSet: {fileID: 719998971}
-  speedInSeconds: 0
+  speedInSwap: 0
 --- !u!114 &1912344936
 MonoBehaviour:
   m_ObjectHideFlags: 0

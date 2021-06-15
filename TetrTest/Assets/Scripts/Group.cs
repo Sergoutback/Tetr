@@ -36,15 +36,13 @@ public class Group : MonoBehaviour
 
     public void GetSpeedFromSwap()
     {
-        // Найти объект по имени
-        // GameObject go = GameObject.Find(ChangeSpeed);
-        // взять его компонент где лежит скорость
+        
         changeSpeedInSwap = goSceneSwap.GetComponent<SceneSwap>();
-        // взять переменную скорости
+        
         changeSpeedInSwap.SpeedInSwap();   
-        // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
+        
         SpeedOfTetr();
-        // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
+        
     } 
     public void SpeedOfTetr()
     {
@@ -111,7 +109,7 @@ public class Group : MonoBehaviour
 
         // Move Downwards and Fall
         else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-                    Time.time - lastFall >= 1)               
+                    Time.time - lastFall >= 1)        //instead of a number use  speedOfTetr;       
                 {                    
                 // Modify position
                 transform.position += new Vector3(0, -1, 0);
