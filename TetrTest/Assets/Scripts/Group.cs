@@ -13,8 +13,8 @@ public class Group : MonoBehaviour
     public float lastFall = 0;
     public float speedOfTetr; //к ней нужен доступ из скрипта ChangeSpeed 
   
-    public GameObject goSceneSwap;
-    public SceneSwap changeSpeedInSwap;    
+    // public GameObject goSceneSwap;
+    // public SceneSwap changeSpeedInSwap;    
 
     bool isValidGridPos() 
     {        
@@ -34,25 +34,25 @@ public class Group : MonoBehaviour
     }
     
 
-    public void GetSpeedFromSwap()
-    {
+    // public void GetSpeedFromSwap()
+    // {
         
-        changeSpeedInSwap = goSceneSwap.GetComponent<SceneSwap>();
+    //     changeSpeedInSwap = goSceneSwap.GetComponent<SceneSwap>();
         
-        changeSpeedInSwap.SpeedInSwap();   
+    //     changeSpeedInSwap.SpeedInSwap();   
         
-        SpeedOfTetr();
+    //     SpeedOfTetr();
         
-    } 
-    public void SpeedOfTetr()
-    {
-        float speedOfTetr = Convert.ToSingle(changeSpeedInSwap);
-    }
+    // } 
+    // public void SpeedOfTetr()
+    // {
+    //     float speedOfTetr = Convert.ToSingle(changeSpeedInSwap);
+    // }
     
 
     void Start() 
     {       
-        GetSpeedFromSwap();   
+        // GetSpeedFromSwap();   
         Debug.Log("SpeedOfTetr="+ speedOfTetr);  
         
         // Default position not valid? Then it's game over
