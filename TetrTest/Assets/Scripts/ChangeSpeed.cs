@@ -29,9 +29,11 @@ public class ChangeSpeed : MonoBehaviour
         // speedForGroup = groupGO.GetComponent<Group>();
         // speedForGroup.speedInSeconds = Convert.ToSingle(speed);
 
-    }   
-    public void Start()
+
+        
+    public void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
-    }
+        DontDestroyOnLoad (this);
+    }    
+
 }
