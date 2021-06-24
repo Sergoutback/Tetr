@@ -281,11 +281,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1912344934}
-  - {fileID: 960346965}
   - {fileID: 944658831}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719998966
 GameObject:
@@ -610,7 +608,7 @@ RectTransform:
   - {fileID: 1275586959}
   - {fileID: 1495546660}
   m_Father: {fileID: 469635741}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -705,11 +703,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 960346964}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.94764614, y: 0.94764614, z: 0.94764614}
   m_Children: []
-  m_Father: {fileID: 469635741}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -742,6 +740,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f12626c723b74ef47ab514907fe1de35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goDontDestroy: {fileID: 960346964}
+  changeSpeedInSet: {fileID: 719998971}
+  speedInDontDestroy: 0
 --- !u!114 &960346968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -783,7 +784,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 719998966}
-  changeSpeedInSet: {fileID: 0}
+  changeSpeedInSet: {fileID: 719998971}
   speedInSwap: 0
 --- !u!1 &1275586958
 GameObject:
@@ -1249,7 +1250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1912344933
 GameObject:
@@ -1276,11 +1277,11 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912344933}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.94764614, y: 0.94764614, z: 0.94764614}
   m_Children: []
-  m_Father: {fileID: 469635741}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1300,7 +1301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 719998966}
-  changeSpeedInSet: {fileID: 0}
+  changeSpeedInSet: {fileID: 960346966}
   speedInSwap: 0
 --- !u!1 &1913622389
 GameObject:

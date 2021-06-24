@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using System;
 
 // Object.DontDestroyOnLoad example.
 //
@@ -10,8 +12,9 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
-    public GameObject goSceneSet;
+    public GameObject goDontDestroy;
     public ChangeSpeed changeSpeedInSet;
+    public float speedInDontDestroy ;
 
 
     void Awake()
@@ -26,16 +29,22 @@ public class DontDestroy : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void GetspeedfromSet()
-    {
-
-        changespeedinSet = goSceneSet.getcomponent<ChangeSpeed>();
-
-        changeSpeedInSet.ChangeSpeedInSet();
-
+    public void SpeedInDontDestroy ()
+    {    
+        float speedInDontDestroy  = Convert.ToSingle(changeSpeedInSet);
+        Debug.Log("speedInSwapOfSceneDontDestroy="+ speedInDontDestroy ); 
     }
-    public void speedoftetr()
+
+    public void GetSpeedFromChangeSpeed()
     {
-        float speedoftetr = convert.tosingle(changeSpeedInSet);
+        // Найти объект по имени
+        // GameObject go = GameObject.Find(ChangeSpeed);
+        // взять его компонент где лежит скорость
+        changeSpeedInSet = goDontDestroy.GetComponent<ChangeSpeed>();
+        // взять переменную скорости
+        changeSpeedInSet.ChangeSpeedInSet();   
+        // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
+        SpeedInDontDestroy ();
+        // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
     }
 }

@@ -13,8 +13,8 @@ public class Group : MonoBehaviour
     public float lastFall = 0;
     public float speedOfTetr; //к ней нужен доступ из скрипта ChangeSpeed 
   
-    // public GameObject goSceneSwap;
-    // public SceneSwap changeSpeedInSwap;    
+    public GameObject goDontDestroy;
+    public DontDestroy changeSpeedInDontDestroy;    
 
     bool isValidGridPos() 
     {        
@@ -34,20 +34,20 @@ public class Group : MonoBehaviour
     }
     
 
-    // public void GetSpeedFromSwap()
-    // {
+    public void GetSpeedFromDontDestroy()
+    {
         
-    //     changeSpeedInSwap = goSceneSwap.GetComponent<SceneSwap>();
+        changeSpeedInDontDestroy = goDontDestroy.GetComponent<DontDestroy>();
         
-    //     changeSpeedInSwap.SpeedInSwap();   
+        changeSpeedInDontDestroy.SpeedInDontDestroy();   
         
-    //     SpeedOfTetr();
+        SpeedOfTetr();
         
-    // } 
-    // public void SpeedOfTetr()
-    // {
-    //     float speedOfTetr = Convert.ToSingle(changeSpeedInSwap);
-    // }
+    } 
+    public void SpeedOfTetr()
+    {
+        float speedOfTetr = Convert.ToSingle(changeSpeedInDontDestroy);
+    }
     
 
     void Start() 
