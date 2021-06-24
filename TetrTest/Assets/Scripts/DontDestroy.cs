@@ -10,6 +10,10 @@ using UnityEngine;
 
 public class DontDestroy : MonoBehaviour
 {
+    public GameObject goSceneSet;
+    public ChangeSpeed changeSpeedInSet;
+
+
     void Awake()
     {
         GameObject[] objs = GameObject.FindGameObjectsWithTag("Speed");
@@ -20,5 +24,18 @@ public class DontDestroy : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+    }
+
+    public void GetspeedfromSet()
+    {
+
+        changespeedinSet = goSceneSet.getcomponent<ChangeSpeed>();
+
+        changeSpeedInSet.ChangeSpeedInSet();
+
+    }
+    public void speedoftetr()
+    {
+        float speedoftetr = convert.tosingle(changeSpeedInSet);
     }
 }

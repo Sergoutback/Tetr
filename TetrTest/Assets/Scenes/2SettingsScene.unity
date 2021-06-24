@@ -686,10 +686,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 960346965}
-  - component: {fileID: 960346967}
   - component: {fileID: 960346966}
   - component: {fileID: 960346968}
   - component: {fileID: 960346969}
+  - component: {fileID: 960346967}
   m_Layer: 0
   m_Name: BackgroundSpeed
   m_TagString: Speed
@@ -713,8 +713,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 262, y: 465.2}
-  m_SizeDelta: {x: 551.30225, y: 981.5156}
+  m_AnchoredPosition: {x: 538.9, y: 959.1}
+  m_SizeDelta: {x: 1135.7307, y: 2023.825}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &960346966
 MonoBehaviour:
@@ -758,7 +758,18 @@ MonoBehaviour:
   - eventID: 4
     callback:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 11500000, guid: 8ec12b4bab3307344a7accd6d5cff123, type: 3}
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &960346969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,7 +783,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 719998966}
-  changeSpeedInSet: {fileID: 719998971}
+  changeSpeedInSet: {fileID: 0}
   speedInSwap: 0
 --- !u!1 &1275586958
 GameObject:
@@ -1273,8 +1284,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 260.7, y: 464.47}
-  m_SizeDelta: {x: 550.62897, y: 980.0928}
+  m_AnchoredPosition: {x: 538.3, y: 963.1}
+  m_SizeDelta: {x: 1136.4656, y: 2032.5247}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1912344935
 MonoBehaviour:
@@ -1289,7 +1300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   go: {fileID: 719998966}
-  changeSpeedInSet: {fileID: 719998971}
+  changeSpeedInSet: {fileID: 0}
   speedInSwap: 0
 --- !u!1 &1913622389
 GameObject:
