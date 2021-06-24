@@ -14,7 +14,7 @@ public class DontDestroy : MonoBehaviour
 {
     public GameObject goDontDestroy;
     public ChangeSpeed changeSpeedInSet;
-    public float speedInDontDestroy ;
+    public float speedInDontDestroy;
 
 
     void Awake()
@@ -43,8 +43,8 @@ public class DontDestroy : MonoBehaviour
         changeSpeedInSet = goDontDestroy.GetComponent<ChangeSpeed>();
         // взять переменную скорости
         changeSpeedInSet.ChangeSpeedInSet();   
-        // Debug.Log("changeSpeedInSetOfGetSpeedFromChangeSpeed="+ changeSpeedInSet); 
+        Debug.Log("changeSpeedInSet="+ changeSpeedInSet); 
         SpeedInDontDestroy ();
-        // Debug.Log("speedInSecondsOfGetSpeedFromChangeSpeed="+ speedInSeconds); 
+        Debug.Log("speedInDontDestroy="+ speedInDontDestroy); 
     }
 }
