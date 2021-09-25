@@ -12,7 +12,7 @@ public class Group : MonoBehaviour
     // Time since last gravity tick
     public float lastFall = 0;
     public float speedOfTetr; //к ней нужен доступ из скрипта ChangeSpeed 
-  
+    public float delta;  
     public GameObject goDontDestroy;
     public DontDestroy changeSpeedInDontDestroy;    
 
@@ -37,23 +37,41 @@ public class Group : MonoBehaviour
     public void GetSpeedFromDontDestroy()
     {
         
-        changeSpeedInDontDestroy = goDontDestroy.GetComponent<DontDestroy>();
+        //changeSpeedInDontDestroy = goDontDestroy.GetComponent<DontDestroy>();
         
-        changeSpeedInDontDestroy.SpeedInDontDestroy();   
+        //changeSpeedInDontDestroy.SpeedInDontDestroy();   
         
         SpeedOfTetr();
+        Debug.Log("speedOfTetr="+ speedOfTetr);  
         
     } 
     public void SpeedOfTetr()
     {
         float speedOfTetr = Convert.ToSingle(changeSpeedInDontDestroy);
     }
+
+    public void Swipe()
+    {
+        //Vector2 delta = Input.GetTouch(0).deltaPosition;
+
+        //if (Mathf.Abs(delta.x)) > (Mathf.Abs(delta.y))
+        //{
+        //    if (delta.x > 0) Debug.Log("right");
+        //    else Debug.Log("left");
+        //}
+        //else
+        //{
+        //    if (delta.y > 0) Debug.Log("up");
+        //    else Debug.Log("down");
+        //}
+    }
     
 
     void Start() 
     {       
-        // GetSpeedFromSwap();   
-        Debug.Log("SpeedOfTetr="+ speedOfTetr);  
+        GetSpeedFromDontDestroy();
+        // GetSpeedFromSwap();           
+        Debug.Log("changeSpeedInDontDestroy="+ changeSpeedInDontDestroy);  
         
         // Default position not valid? Then it's game over
         if (!isValidGridPos()) {
@@ -67,7 +85,8 @@ public class Group : MonoBehaviour
     void Update() 
     {        
         // Move Left
-        if (Input.GetKeyDown(KeyCode.LeftArrow)) {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
             // Modify position
             transform.position += new Vector3(-1, 0, 0);
         
@@ -109,7 +128,7 @@ public class Group : MonoBehaviour
 
         // Move Downwards and Fall
         else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-                    Time.time - lastFall >= 1)        //instead of a number use  speedOfTetr;       
+                    Time.time - lastFall >=1 )        //instead of a number use  speedOfTetr;       
                 {                    
                 // Modify position
                 transform.position += new Vector3(0, -1, 0);

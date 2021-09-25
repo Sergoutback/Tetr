@@ -27,6 +27,7 @@ public class DontDestroy : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
+        Debug.Log("speedAfterDontDestroyOnLoad="+ speedInDontDestroy ); 
     }
 
     public void SpeedInDontDestroy ()
@@ -46,5 +47,5 @@ public class DontDestroy : MonoBehaviour
         Debug.Log("changeSpeedInSet="+ changeSpeedInSet); 
         SpeedInDontDestroy ();
         Debug.Log("speedInDontDestroy="+ speedInDontDestroy); 
-    }
+    }    
 }
