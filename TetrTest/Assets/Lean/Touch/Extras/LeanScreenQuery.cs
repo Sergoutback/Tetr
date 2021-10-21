@@ -52,6 +52,8 @@ namespace Lean.Common
 		// Used by RaycastGui
 		private static EventSystem tempEventSystem;
 
+		private static List<KeyValuePair<GameObject, int>> tempLayers = new List<KeyValuePair<GameObject, int>>();
+
 		public LeanScreenQuery(MethodType newMethod)
 		{
 			Method      = newMethod;
@@ -60,6 +62,39 @@ namespace Lean.Common
 			Camera      = null;
 			Layers      = Physics.DefaultRaycastLayers;
 			Distance    = 50.0f;
+		}
+
+		public static void ChangeLayers(GameObject root, bool ancestors, bool children)
+		{
+			tempLayers.Add(new KeyValuePair<GameObject, int>(root, root.layer));
+
+			root.layer = 2; // Ignore raycast
+
+			if (ancestors == true && root.transform.parent != null)
+			{
+				ChangeLayers(root.transform.parent.gameObject, true, false);
+			}
+
+			if (children == true)
+			{
+				for (var i = root.transform.childCount - 1; i >= 0; i--)
+				{
+					ChangeLayers(root.transform.GetChild(i).gameObject, false, true);
+				}
+			}
+		}
+
+		public static void RevertLayers()
+		{
+			foreach (var tempLayer in tempLayers)
+			{
+				if (tempLayer.Key != null)
+				{
+					tempLayer.Key.layer = tempLayer.Value;
+				}
+			}
+
+			tempLayers.Clear();
 		}
 
 		public T Query<T>(GameObject gameObject, Vector2 screenPosition)
