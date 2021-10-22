@@ -27,8 +27,8 @@ public class SceneSwap : MonoBehaviour
     
     private void OnGUI()
     {
-        int xCenter = (Screen.width - Screen.width / 4);
-        int yCenter = (Screen.height-Screen.height/2);
+        int xCenter = (Screen.width - 100);
+        int yCenter = (Screen.height- Screen.height / 3);
         int width = 110;
         int height = 110;
 
