@@ -52,18 +52,34 @@ public class Group : MonoBehaviour
 
     public void Swipe()
     {
-        //Vector2 delta = Input.GetTouch(0).deltaPosition;
+        Vector2 delta = Input.GetTouch(0).deltaPosition;
 
-        //if (Mathf.Abs(delta.x)) > (Mathf.Abs(delta.y))
-        //{
-        //    if (delta.x > 0) Debug.Log("right");
-        //    else Debug.Log("left");
-        //}
-        //else
-        //{
-        //    if (delta.y > 0) Debug.Log("up");
-        //    else Debug.Log("down");
-        //}
+        if ((int)((Mathf.Abs(delta.x))) > (int)(Mathf.Abs(delta.y)))
+        {
+            if (delta.x > 0)
+            {
+                MoveRight();
+                Debug.Log("right");
+            }
+            else
+            {
+                MoveLeft();
+                Debug.Log("left");
+            }
+        }
+        else
+        {
+            if (delta.y > 0)
+            {
+                Rotate();
+                Debug.Log("up");
+            }
+            else
+            {
+                DownwardsandFall();
+                Debug.Log("down");
+            }
+        }
     }
     
 
@@ -79,82 +95,38 @@ public class Group : MonoBehaviour
             // Debug.Log("timeForSpeedInGroup = "+ timeForSpeed);
             // Debug.Log("speedInSecondsInGroup="+speedInSeconds);
             Destroy(gameObject);
-            SceneManager.LoadScene(3);                                          
+            SceneManager.LoadScene(3);
         }
     }
     void Update() 
-    {        
+    {
+        Swipe();
+
         // Move Left
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            // Modify position
-            transform.position += new Vector3(-1, 0, 0);
-        
-            // See if valid
-            if (isValidGridPos())
-                // It's valid. Update grid.
-                updateGrid();
-            else
-                // It's not valid. revert.
-                transform.position += new Vector3(1, 0, 0);
-        }
+            MoveLeft();
+        }        
 
         // Move Right
-        else if (Input.GetKeyDown(KeyCode.RightArrow)) {
-            // Modify position
-            transform.position += new Vector3(1, 0, 0);
-        
-            // See if valid
-            if (isValidGridPos())
-                // It's valid. Update grid.
-                updateGrid();
-            else
-                // It's not valid. revert.
-                transform.position += new Vector3(-1, 0, 0);
-        }
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MoveRight();
+        }        
 
         // Rotate
-        else if (Input.GetKeyDown(KeyCode.UpArrow)) {
-            transform.Rotate(0, 0, -90);
-        
-            // See if valid
-            if (isValidGridPos())
-                // It's valid. Update grid.
-                updateGrid();
-            else
-                // It's not valid. revert.
-                transform.Rotate(0, 0, 90);
-        }
+        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Rotate();
+        }        
 
         // Move Downwards and Fall
         else if (Input.GetKeyDown(KeyCode.DownArrow) ||
-                    Time.time - lastFall >=1 )        //instead of a number use  speedOfTetr;       
-                {                    
-                // Modify position
-                transform.position += new Vector3(0, -1, 0);
-
-                // See if valid
-                if (isValidGridPos()) {
-                    // It's valid. Update grid.
-                    updateGrid();
-                } 
-                else 
-                {
-                    // It's not valid. revert.
-                    transform.position += new Vector3(0, 1, 0);
-
-                    // Clear filled horizontal lines
-                    Playfield.deleteFullRows();
-
-                    // Spawn next Group
-                    FindObjectOfType<Spawner>().spawnNext();
-
-                    // Disable script
-                    enabled = false;
-                }
-
-            lastFall = Time.time;
+                    Time.time - lastFall >=1 )        //instead of a number use  speedOfTetr;
+        {
+            DownwardsandFall();
         }
+        
     }
     void updateGrid() 
     {
@@ -170,5 +142,72 @@ public class Group : MonoBehaviour
             Vector2 v = Playfield.roundVec2(child.position);
             Playfield.grid[(int)v.x, (int)v.y] = child;
         }        
-    }        
+    }
+    public void MoveLeft()
+    {
+        // Modify position
+        transform.position += new Vector3(-1, 0, 0);
+
+        // See if valid
+        if (isValidGridPos())
+            // It's valid. Update grid.
+            updateGrid();
+        else
+            // It's not valid. revert.
+            transform.position += new Vector3(1, 0, 0);
+    }
+    public void MoveRight()
+    {
+        // Modify position
+        transform.position += new Vector3(1, 0, 0);
+
+        // See if valid
+        if (isValidGridPos())
+            // It's valid. Update grid.
+            updateGrid();
+        else
+            // It's not valid. revert.
+            transform.position += new Vector3(-1, 0, 0);
+    }
+    public void Rotate()
+    {
+        transform.Rotate(0, 0, -90);
+
+        // See if valid
+        if (isValidGridPos())
+            // It's valid. Update grid.
+            updateGrid();
+        else
+            // It's not valid. revert.
+            transform.Rotate(0, 0, 90);
+    }
+    public void DownwardsandFall()
+    {                    
+        // Modify position
+        transform.position += new Vector3(0, -1, 0);
+
+        // See if valid
+        if (isValidGridPos()) 
+            {
+                // It's valid. Update grid.
+                updateGrid();
+            }
+
+        else
+            {
+                // It's not valid. revert.
+                transform.position += new Vector3(0, 1, 0);
+
+                // Clear filled horizontal lines
+                Playfield.deleteFullRows();
+
+                // Spawn next Group
+                FindObjectOfType<Spawner>().spawnNext();
+
+                // Disable script
+                enabled = false;
+            }
+
+        lastFall = Time.time;
+    }
 }
